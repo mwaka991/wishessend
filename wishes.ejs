@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kave Wishes</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kave Wishes</h1>
+        <form id="wishForm" action="/api/wishes" method="POST" enctype="multipart/form-data">
+            <label for="wishType">Select Wish Type:</label>
+            <select id="wishType" name="wishType" required>
+                <option value="birthday">Birthday</option>
+                <option value="holiday">Holiday</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Your Wish Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="image">Attach an Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <label for="music">Attach Music:</label>
+            <input type="file" id="music" name="music" accept="audio/*">
+
+            <label for="publish">Publish Wish On:</label>
+            <select id="publish" name="publish" required>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+            </select>
+
+            <button type="submit">Send Wish</button>
+        </form>
+
+        <div id="wishesList">
+            <h2>Recent Wishes</h2>
+            <% wishes.forEach(function(wish) { %>
+                <div class="wish">
+                    <h3><%= wish.type %> Wish</h3>
+                    <p><%= wish.message %></p>
+                    <% if (wish.image) { %>
+                        <img src="<%= wish.image %>" alt="Wish Image">
+                    <% } %>
+                    <% if (wish.music) { %>
+                        <audio controls>
+                            <source src="<%= wish.music %>" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    <% } %>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

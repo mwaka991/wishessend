@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kave Wishes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>unique Wishes</h1>
+            <p>Send your heartfelt wishes for any occasion!</p>
+        </header>
+        <main>
+            <form id="wishForm">
+                <label for="wishType">Select Wish Type:</label>
+                <select id="wishType" name="wishType" required>
+                    <option value="birthday">Birthday</option>
+                    <option value="holiday">Holiday</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="wishMessage">Your Wish Message:</label>
+                <textarea id="wishMessage" name="wishMessage" rows="4" required></textarea>
+
+                <label for="wishImage">Attach an Image:</label>
+                <input type="file" id="wishImage" name="wishImage" accept="image/*">
+
+                <label for="wishMusic">Attach a Music File:</label>
+                <input type="file" id="wishMusic" name="wishMusic" accept="audio/*">
+
+                <label for="publishOptions">Publish Wish On:</label>
+                <select id="publishOptions" name="publishOptions" required>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                </select>
+
+                <button type="submit">Send Wish</button>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2023 Kave Wishes. All rights reserved.</p>
+            <p>contact us: 0623709042
+                
+            </p>
+        </footer>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
